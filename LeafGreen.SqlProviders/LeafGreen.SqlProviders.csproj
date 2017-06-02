@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="4.6.0" />
+    <PackageReference Include="Dapper" Version="1.50.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LeafGreen.Infrastructure\LeafGreen.Infrastructure.csproj" />
+    <ProjectReference Include="..\LeafGreen.Repositories\LeafGreen.Repositories.csproj" />
   </ItemGroup>
 
 </Project>
