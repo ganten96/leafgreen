@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LeafGreen.Entities\LeafGreen.Entities.csproj" />
+    <ProjectReference Include="..\LeafGreen.Repositories\LeafGreen.Repositories.csproj" />
+    <ProjectReference Include="..\LeafGreen.SqlProviders\LeafGreen.SqlProviders.csproj" />
+  </ItemGroup>
+
+</Project>
