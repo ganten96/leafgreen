@@ -16,7 +16,13 @@ namespace LeafGreen.Entities
         {
             var plantString = $"{Author}{CommonName}{Family}{ScientificName}{Symbol}";
             var stringBytes = System.Text.Encoding.ASCII.GetBytes(plantString);
-            return System.Text.Encoding.ASCII.GetString(SHA256.Create().ComputeHash(stringBytes));
+            var bytes = SHA256.Create().ComputeHash(stringBytes);
+            string hashString = string.Empty;
+            foreach (byte x in bytes)
+            {
+                hashString += String.Format("{0:x2}", x);
+            }
+            return hashString;
         }
     }
 }

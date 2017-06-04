@@ -23,7 +23,7 @@ namespace LeafGreen.SqlProviders
             var uninsertedPlants = new List<Plant>();
             foreach(var plant in plants)
             {
-                var isInserted = (await _connection.ExecuteAsync("[plants].[usp_InsertPlant]", new
+                var isInserted = (await _connection.QueryFirstAsync<int>("[plants].[usp_InsertPlant]", new
                 {
                     plant.Symbol,
                     plant.ScientificName,
@@ -31,7 +31,7 @@ namespace LeafGreen.SqlProviders
                     plant.CommonName,
                     plant.Family,
                     PlantHash = plant.ComputePlantHash()
-                })) > 0;
+                }, commandType: System.Data.CommandType.StoredProcedure)) > 0;
                 if(!isInserted)
                 {
                     uninsertedPlants.Add(plant);

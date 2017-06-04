@@ -6,7 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\LeafGreen.Entities\LeafGreen.Entities.csproj" />
+    <ProjectReference Include="..\LeafGreen.Repositories\LeafGreen.Repositories.csproj" />
+    <ProjectReference Include="..\LeafGreen.SqlProviders\LeafGreen.SqlProviders.csproj" />
   </ItemGroup>
 
 </Project>
