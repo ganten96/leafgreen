@@ -71,5 +71,7 @@
     <Build Include="plants\Stored Procedures\usp_InsertPlant.sql" />
     <Build Include="plants\User Defined Types\MultiplePlants.sql" />
     <Build Include="Security\plants.sql" />
+    <Build Include="plants\Tables\Gardens.sql" />
+    <Build Include="plants\Tables\GardenPlants.sql" />
   </ItemGroup>
 </Project>
