@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using LeafGreen.Repositories;
 using LeafGreen.Entities;
@@ -24,10 +21,17 @@ namespace LeafGreen.WebApi.Controllers
         {
             return await _repo.SelectAllGardensAsync();
         }
+
         [HttpPost]
-        public async Task<Garden> AddGarden(Garden garden)
+        public async Task<Garden> AddGarden([FromBody]Garden garden)
         {
             return await _repo.InsertGardenAsync(garden);
+        }
+
+        [HttpGet("{gardenId:int}")]
+        public async Task<Garden> GetGardenById(int gardenId)
+        {
+            return await _repo.GetGardenByIdAsync(gardenId);
         }
     }
 }
