@@ -9,5 +9,8 @@ namespace LeafGreen.Repositories
     {
         Task<int> InsertPlantsAsync(List<Plant> plants);
         Task<List<Plant>> InsertPlantListAsync(List<Plant> plants);
+        Task<Garden> InsertGardenAsync(Garden garden);
+        Task<IEnumerable<Garden>> SelectAllGardensAsync();
+        Task<Garden> GetGardenByIdAsync(int gardenId);
     }
 }
