@@ -1,42 +1,54 @@
 ﻿-- =============================================
 -- Author:		Nick Ganter
--- Create date: 6/1/2017
--- Description:	Inserts one plant
+-- Create date: 6/17/2017
+-- Description:	Inserts a garden
 -- =============================================
 
-CREATE PROC [plants].[usp_InsertPlant]
-	@Symbol VARCHAR(15)
-	,@ScientificName VARCHAR(150)
-	,@Author VARCHAR(250)
-	,@CommonName VARCHAR(250)
-	,@Family VARCHAR(250)
-	,@PlantHash VARCHAR(256)
+CREATE PROC [plants].[usp_InsertGarden]
+	@GardenName VARCHAR(256)
+	,@IsArchived BIT
+	,@DateAdded DATETIME2(7)
+	,@Latitude FLOAT
+	,@Longitude FLOAT
+	,@DeviceId VARCHAR(36)
 AS
 BEGIN 
     SET XACT_ABORT ON;
 	SET NOCOUNT ON;
 
 	BEGIN TRY 
-
-	INSERT INTO plants.Plants
+	
+	
+	INSERT INTO plants.Gardens
 	(
-		Symbol
-		,ScientificName
-		,Author
-		,CommonName
-		,Family
-		,PlantHash
-	)
+		GardenName
+		,IsArchived
+		,DateAdded
+		,[Location]
+		,DeviceId
+	)	
 	VALUES
 	(
-		@Symbol
-		,@ScientificName
-		,@Author 
-		,@CommonName
-		,@Family
-		,@PlantHash
+		@GardenName
+		,@IsArchived
+		,@DateAdded
+		,geography::Point(@Latitude, @Longitude, 4326)
+		,@DeviceId
 	)
-	SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END
+
+	DECLARE @lastInsertedGarden INT = (SELECT CAST(SCOPE_IDENTITY() AS INT))
+	SELECT
+		g.GardenId
+		,g.GardenName
+		,g.DateAdded
+		,g.IsArchived
+		,g.Location.Lat AS Latitude
+		,g.Location.Long AS Longitude
+	FROM
+		plants.Gardens g
+	WHERE
+		g.GardenId = @lastInsertedGarden
+
 	IF XACT_STATE() = 1
 		COMMIT TRANSACTION;
 	END Try 
@@ -63,19 +75,4 @@ BEGIN
         IF XACT_STATE() = -1 ROLLBACK TRANSACTION;
 		THROW;
      END CATCH
-END 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+END

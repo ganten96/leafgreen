@@ -1,16 +1,11 @@
 ﻿-- =============================================
 -- Author:		Nick Ganter
--- Create date: 6/1/2017
--- Description:	Inserts one plant
+-- Create date: 6/17/2017
+-- Description:	Selects All Gardens
 -- =============================================
 
-CREATE PROC [plants].[usp_InsertPlant]
-	@Symbol VARCHAR(15)
-	,@ScientificName VARCHAR(150)
-	,@Author VARCHAR(250)
-	,@CommonName VARCHAR(250)
-	,@Family VARCHAR(250)
-	,@PlantHash VARCHAR(256)
+CREATE PROC plants.usp_SelectAllGardens
+
 AS
 BEGIN 
     SET XACT_ABORT ON;
@@ -18,25 +13,16 @@ BEGIN
 
 	BEGIN TRY 
 
-	INSERT INTO plants.Plants
-	(
-		Symbol
-		,ScientificName
-		,Author
-		,CommonName
-		,Family
-		,PlantHash
-	)
-	VALUES
-	(
-		@Symbol
-		,@ScientificName
-		,@Author 
-		,@CommonName
-		,@Family
-		,@PlantHash
-	)
-	SELECT CASE WHEN @@ROWCOUNT > 0 THEN 1 ELSE 0 END
+	SELECT
+		GardenName
+		,IsArchived
+		,DateAdded
+		,[Location].Lat AS Latitude
+		,[Location].Long AS Longitude
+		,GardenId
+	FROM
+		plants.Gardens
+
 	IF XACT_STATE() = 1
 		COMMIT TRANSACTION;
 	END Try 
@@ -63,19 +49,4 @@ BEGIN
         IF XACT_STATE() = -1 ROLLBACK TRANSACTION;
 		THROW;
      END CATCH
-END 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+END
