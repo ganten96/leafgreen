@@ -49,7 +49,8 @@ namespace LeafGreen.SqlProviders
                 IsArchived = false,
                 garden.DateAdded,
                 garden.Latitude,
-                garden.Longitude
+                garden.Longitude,
+                garden.DeviceId
             },
             commandType: System.Data.CommandType.StoredProcedure).ConfigureAwait(false);
         }
@@ -74,6 +75,22 @@ namespace LeafGreen.SqlProviders
                     GardenId = gardenId
                 }, commandType: System.Data.CommandType.StoredProcedure)
                 .ConfigureAwait(false);
+        }
+
+        public async Task<IEnumerable<Garden>> SelectAllGardensByDeviceIdAsync(string deviceId)
+        {
+            return await _connection.
+                    QueryAsync<Garden>("[plants].[usp_SelectGardensByDeviceId]",
+                    new { DeviceId = deviceId },
+                    commandType: System.Data.CommandType.StoredProcedure).ConfigureAwait(false);
+        }
+
+        public async Task<IEnumerable<Plant>> GetAllPlantsForGardenByGardenId(int gardenId)
+        {
+            return await _connection
+                .QueryAsync<Plant>("[plants].[usp_SelectGardenPlantsByGardenId]",
+                new { GardenId = gardenId },
+                commandType: System.Data.CommandType.StoredProcedure).ConfigureAwait(false);
         }
     }
 }

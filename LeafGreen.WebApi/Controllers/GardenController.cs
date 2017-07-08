@@ -33,5 +33,13 @@ namespace LeafGreen.WebApi.Controllers
         {
             return await _repo.GetGardenByIdAsync(gardenId);
         }
+
+        [HttpGet("{deviceId}/gardens")]
+        public async Task<IEnumerable<Garden>> GetGardensByDeviceId(string deviceId)
+        {
+            return await _repo.SelectAllGardensByDeviceIdAsync(deviceId);
+        }
+
+
     }
 }
