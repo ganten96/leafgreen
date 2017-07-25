@@ -10,6 +10,8 @@
     <ApplicationIcon />
     <OutputTypeEx>exe</OutputTypeEx>
     <StartupObject />
+    <ApplicationInsightsResourceId>/subscriptions/f4caa7e7-0ccf-4441-9611-91789bcad210/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/LeafGreen.WebApi</ApplicationInsightsResourceId>
+    <ApplicationInsightsAnnotationResourceId>/subscriptions/f4caa7e7-0ccf-4441-9611-91789bcad210/resourcegroups/Default-ApplicationInsights-EastUS/providers/microsoft.insights/components/LeafGreen.WebApi</ApplicationInsightsAnnotationResourceId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,7 +19,7 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.1.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.3" />
     <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.2" />
@@ -35,6 +37,9 @@
   <ItemGroup>
     <ProjectReference Include="..\LeafGreen.Repositories\LeafGreen.Repositories.csproj" />
     <ProjectReference Include="..\LeafGreen.SqlProviders\LeafGreen.SqlProviders.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
   </ItemGroup>
 
 </Project>

@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using LeafGreen.Repositories;
 using LeafGreen.Entities;
+using System;
 
 namespace LeafGreen.WebApi.Controllers
 {
@@ -17,29 +18,55 @@ namespace LeafGreen.WebApi.Controllers
         }
 
         [HttpGet("all")]
-        public async Task<IEnumerable<Garden>> GetAllGardens()
+        public async Task<IActionResult> GetAllGardens()
         {
-            return await _repo.SelectAllGardensAsync();
+            try
+            {
+                return Ok(await _repo.SelectAllGardensAsync());
+            }
+            catch(Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
         }
 
         [HttpPost]
-        public async Task<Garden> AddGarden([FromBody]Garden garden)
+        public async Task<IActionResult> AddGarden([FromBody]Garden garden)
         {
-            return await _repo.InsertGardenAsync(garden);
+            try
+            {
+                return Ok(await _repo.InsertGardenAsync(garden));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
         }
 
         [HttpGet("{gardenId:int}")]
-        public async Task<Garden> GetGardenById(int gardenId)
+        public async Task<IActionResult> GetGardenById(int gardenId)
         {
-            return await _repo.GetGardenByIdAsync(gardenId);
+            try
+            {
+                return Ok(await _repo.GetGardenByIdAsync(gardenId));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
         }
 
         [HttpGet("{deviceId}/gardens")]
-        public async Task<IEnumerable<Garden>> GetGardensByDeviceId(string deviceId)
+        public async Task<IActionResult> GetGardensByDeviceId(string deviceId)
         {
-            return await _repo.SelectAllGardensByDeviceIdAsync(deviceId);
+            try
+            {
+                return Ok(await _repo.SelectAllGardensByDeviceIdAsync(deviceId));
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
         }
-
-
     }
 }
