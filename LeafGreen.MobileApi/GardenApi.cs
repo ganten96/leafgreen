@@ -4,19 +4,11 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft;
 using Newtonsoft.Json;
 namespace LeafGreen.MobileApi
 {
     public class GardenApi
     {
-        private readonly string _deviceId;
-
-        public GardenApi(string deviceId)
-        {
-            _deviceId = deviceId;
-        }
-
         public async Task<Garden> AddGardenAsync(Garden garden)
         {
             using (var httpClient = new HttpClient())

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>LefGreen.MobileApi</id>
+    <version>1.0.0</version>
+    <authors>Nick Ganter</authors>
+    <owners>Nick Ganter</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Mobile API for use clientside.</description>
+    <copyright>Copyright 2017</copyright>
+  </metadata>
+</package>
