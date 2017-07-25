@@ -73,5 +73,10 @@
     <Build Include="Security\plants.sql" />
     <Build Include="plants\Tables\Gardens.sql" />
     <Build Include="plants\Tables\GardenPlants.sql" />
+    <Build Include="plants\Stored Procedures\usp_SelectGardensByDeviceId.sql" />
+    <Build Include="plants\Stored Procedures\usp_SelectGardenPlantsByGardenId.sql" />
+    <Build Include="plants\Stored Procedures\usp_SelectGardenById.sql" />
+    <Build Include="plants\Stored Procedures\usp_SelectAllGardens.sql" />
+    <Build Include="plants\Stored Procedures\usp_InsertGarden.sql" />
   </ItemGroup>
 </Project>

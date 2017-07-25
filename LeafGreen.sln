@@ -1,23 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26430.15
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.WebApi", "LeafGreen.WebApi\LeafGreen.WebApi.csproj", "{1AA6C83D-3F9E-4DF4-A701-3CA2B8CCFD84}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.WebApi", "LeafGreen.WebApi\LeafGreen.WebApi.csproj", "{1AA6C83D-3F9E-4DF4-A701-3CA2B8CCFD84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.Infrastructure", "LeafGreen.Infrastructure\LeafGreen.Infrastructure.csproj", "{197C6536-98D3-44AF-A9B9-0BBA6E642730}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.Infrastructure", "LeafGreen.Infrastructure\LeafGreen.Infrastructure.csproj", "{197C6536-98D3-44AF-A9B9-0BBA6E642730}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.Repositories", "LeafGreen.Repositories\LeafGreen.Repositories.csproj", "{F4A89C5F-C6E4-4055-91E9-BBF34A61A5A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.Repositories", "LeafGreen.Repositories\LeafGreen.Repositories.csproj", "{F4A89C5F-C6E4-4055-91E9-BBF34A61A5A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.Entities", "LeafGreen.Entities\LeafGreen.Entities.csproj", "{DFAE6C8D-7C4B-439F-8871-FF65455ECF24}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.Entities", "LeafGreen.Entities\LeafGreen.Entities.csproj", "{DFAE6C8D-7C4B-439F-8871-FF65455ECF24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.SqlProviders", "LeafGreen.SqlProviders\LeafGreen.SqlProviders.csproj", "{4CF05F12-C436-4431-A55E-68E5591332B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.SqlProviders", "LeafGreen.SqlProviders\LeafGreen.SqlProviders.csproj", "{4CF05F12-C436-4431-A55E-68E5591332B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.Autofac", "LeafGreen.Autofac\LeafGreen.Autofac.csproj", "{50AFC80C-33FA-42F9-96D1-559F9E444706}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.Autofac", "LeafGreen.Autofac\LeafGreen.Autofac.csproj", "{50AFC80C-33FA-42F9-96D1-559F9E444706}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LeafGreenDb", "LeafGreenDb\LeafGreenDb.sqlproj", "{FA8C6C56-72B8-40C6-BA49-A13A27CEDE6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.Import", "LeafGreen.Import\LeafGreen.Import.csproj", "{734AA132-C0E8-493B-8601-DAEAC0801837}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.Import", "LeafGreen.Import\LeafGreen.Import.csproj", "{734AA132-C0E8-493B-8601-DAEAC0801837}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.MobileApi", "LeafGreen.MobileApi\LeafGreen.MobileApi.csproj", "{4741A041-240A-445D-94F8-EC4814C82387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{734AA132-C0E8-493B-8601-DAEAC0801837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{734AA132-C0E8-493B-8601-DAEAC0801837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{734AA132-C0E8-493B-8601-DAEAC0801837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4741A041-240A-445D-94F8-EC4814C82387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4741A041-240A-445D-94F8-EC4814C82387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4741A041-240A-445D-94F8-EC4814C82387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4741A041-240A-445D-94F8-EC4814C82387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

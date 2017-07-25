@@ -14,7 +14,7 @@ namespace LeafGreen.Import
         private static PlantSqlProvider _sql;
         public static void Main(string[] args)
         {
-            _sql = new PlantSqlProvider("Server=localhost;Database=LeafGreen;Trusted_Connection=True;");
+            _sql = new PlantSqlProvider("Server=tcp:hcvguz50tm.database.windows.net,1433;Initial Catalog=LeafGreen-Dev;Persist Security Info=False;User ID=leafgreendev;Password=e3DIXLlGh5MW;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;");
             Console.WriteLine("Welcome to the plant processor!");
             Console.WriteLine("------------------------------------------------------------------");
             if (File.Exists("failed-inserts.json"))
@@ -26,7 +26,7 @@ namespace LeafGreen.Import
             {
                 Console.WriteLine("Inserting plants....");
                 var plants = Task.Run(async () => { return await ProcessAllPlants(); }).Result;
-                if(plants.Count == 0)
+                if(plants?.Count == 0)
                 {
                     Console.WriteLine($"All plants inserted successfully!");
                     Console.WriteLine("Finished inserting plants! Press enter to exit import application.");
@@ -88,10 +88,17 @@ namespace LeafGreen.Import
                     });
                 }
             }
-
-            var uninsertedPlants = await _sql.InsertPlantListAsync(plants);
-
-            return uninsertedPlants;
+            try
+            {
+                var uninsertedPlants = await _sql.InsertPlantListAsync(plants);
+                return uninsertedPlants;
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("----------------------------ERROR---------------------------");
+                Console.WriteLine(ex.Message);
+            }
+            return null;
         }
     }
 }
