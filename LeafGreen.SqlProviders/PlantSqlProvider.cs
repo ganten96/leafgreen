@@ -55,9 +55,22 @@ namespace LeafGreen.SqlProviders
             commandType: System.Data.CommandType.StoredProcedure).ConfigureAwait(false);
         }
 
+        public async Task<bool> InsertcGardenPlantAsync(Plant plant, int gardenId)
+        {
+            return await _connection.ExecuteAsync("[plants].[usp_InsertPlant]", new
+            {
+                plant.Symbol,
+                plant.ScientificName,
+                plant.Author,
+                plant.CommonName,
+                plant.Family,
+                PlantHash = plant.ComputePlantHash()
+            }, commandType: System.Data.CommandType.StoredProcedure) > 0;
+        }
+
         public Task<int> InsertPlantsAsync(List<Plant> plants)
         {
-            throw new NotImplementedException();
+           throw new NotImplementedException();
         }
 
         public async Task<IEnumerable<Garden>> SelectAllGardensAsync()
@@ -91,6 +104,29 @@ namespace LeafGreen.SqlProviders
                 .QueryAsync<Plant>("[plants].[usp_SelectGardenPlantsByGardenId]",
                 new { GardenId = gardenId },
                 commandType: System.Data.CommandType.StoredProcedure).ConfigureAwait(false);
+        }
+
+        public async Task<Plant> InsertGardenPlantAsync(Plant plant, int gardenId)
+        {
+            var insertedId = await _connection.ExecuteScalarAsync<int>("[plants].[usp_InsertGardenPlant]",
+                new
+                {
+                    plant.PlantName,
+                    GardenId = gardenId
+                });
+            if (insertedId > 0)
+            {
+                plant.PlantId = insertedId;
+            }
+            return plant;
+        }
+
+        public async Task<bool> DeletePlantFromGardenAsync(int plantId, int gardenId)
+        {
+            return await _connection.ExecuteAsync("[plants].[usp_DeletePlantByPlantId]",
+                new {PlantId = plantId, GardenId = gardenId},
+                commandType: System.Data.CommandType.StoredProcedure)
+                .ConfigureAwait(false) > 0;
         }
     }
 }

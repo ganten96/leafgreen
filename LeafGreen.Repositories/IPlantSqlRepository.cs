@@ -14,5 +14,7 @@ namespace LeafGreen.Repositories
         Task<Garden> GetGardenByIdAsync(int gardenId);
         Task<IEnumerable<Garden>> SelectAllGardensByDeviceIdAsync(string deviceId);
         Task<IEnumerable<Plant>> GetAllPlantsForGardenByGardenId(int gardenId);
+        Task<Plant> InsertGardenPlantAsync(Plant plant, int gardenId);
+        Task<bool> DeletePlantFromGardenAsync(int plantId, int gardenId);
     }
 }

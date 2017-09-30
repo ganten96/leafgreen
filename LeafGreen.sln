@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.15
+VisualStudioVersion = 15.0.26730.15
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.WebApi", "LeafGreen.WebApi\LeafGreen.WebApi.csproj", "{1AA6C83D-3F9E-4DF4-A701-3CA2B8CCFD84}"
 EndProject
@@ -18,8 +18,6 @@ EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "LeafGreenDb", "LeafGreenDb\LeafGreenDb.sqlproj", "{FA8C6C56-72B8-40C6-BA49-A13A27CEDE6A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LeafGreen.Import", "LeafGreen.Import\LeafGreen.Import.csproj", "{734AA132-C0E8-493B-8601-DAEAC0801837}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LeafGreen.MobileApi", "LeafGreen.MobileApi\LeafGreen.MobileApi.csproj", "{4741A041-240A-445D-94F8-EC4814C82387}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,12 +59,11 @@ Global
 		{734AA132-C0E8-493B-8601-DAEAC0801837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{734AA132-C0E8-493B-8601-DAEAC0801837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{734AA132-C0E8-493B-8601-DAEAC0801837}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4741A041-240A-445D-94F8-EC4814C82387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4741A041-240A-445D-94F8-EC4814C82387}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4741A041-240A-445D-94F8-EC4814C82387}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4741A041-240A-445D-94F8-EC4814C82387}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {501F8894-303D-45C8-9CD9-CC3AC2E1BC13}
 	EndGlobalSection
 EndGlobal
