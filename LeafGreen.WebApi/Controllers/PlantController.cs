@@ -18,21 +18,15 @@ namespace LeafGreen.WebApi.Controllers
         }
 
         [HttpPost("garden/{gardenId:int}/add")]
-        public async Task<IActionResult> AddPlant([FromBody] List<Plant> plants, int gardenId)
+        public async Task<IActionResult> AddPlant([FromBody] Plant plant, int gardenId)
         {
             var garden = _repo.GetGardenByIdAsync(gardenId);
             if (garden == null)
                 return NotFound(new {message = $"No gardens found for gardenId {gardenId}"});
-            if (plants.Count < 1)
+            if (plant == null)
                 return BadRequest("No plants were sent.");
-            var uninsertedPlants = new List<Plant>();
-            foreach (var plant in plants)
-            {
-                var inserted = await _repo.InsertGardenPlantAsync(plant, gardenId);
-                if (inserted.PlantId == 0)
-                    uninsertedPlants.Add(plant);
-            }
-            if (uninsertedPlants.Count == plants.Count)
+            var inserted = await _repo.InsertGardenPlantAsync(plant, gardenId);
+            if (inserted.PlantId == 0)
                 return BadRequest("No plants were inserted.");
             return Ok();
         }
